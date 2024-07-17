@@ -1,5 +1,7 @@
-const Tasks = require("../models/tasks");
-const { getFilterCriteria } = require("../utils/DateUtilFunctions");
+import Tasks from "../models/tasks.js";
+import getFilterCriteria from '../utils/DateUtilFunctions.js'
+// const Tasks = require("../models/tasks");
+// const { getFilterCriteria } = require("../utils/DateUtilFunctions");
 
 const getTasks = async (req, res) => {
   try {
@@ -57,7 +59,8 @@ const getTasksByFilter = async (req, res) => {
     res.status(500).json({ message: "Error fetching tasks", error });
   }
 };
-module.exports = {
+
+export default {
   getTasks,
   getPaginatedTasks,
   getTaskByAssignee,

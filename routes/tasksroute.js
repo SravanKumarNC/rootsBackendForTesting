@@ -1,24 +1,19 @@
-const express = require("express");
+import express from "express";
+import taskscontroller from "../controllers/taskscontroller.js";
 const router = express.Router();
-const {
-  getTasks,
-  getPaginatedTasks,
-  getTaskByAssignee,
-  addTask,
-  getTasksByFilter,
-} = require("../controllers/taskscontroller.js");
+
 
 //get all tasks
-router.get("/", getTasks);
+router.get("/", taskscontroller.getTasks);
 // get tasks assigned by a one assignee
 
-router.get("/paginatedData", getPaginatedTasks);
+router.get("/paginatedData", taskscontroller.getPaginatedTasks);
 
-router.get("/:assignee", getTaskByAssignee);
+router.get("/:assignee", taskscontroller.getTaskByAssignee);
 
 // add new task
-router.post("/", addTask);
+router.post("/", taskscontroller.addTask);
 
-router.get("/:filter", getTasksByFilter);
+router.get("/:filter", taskscontroller.getTasksByFilter);
 
-module.exports = router;
+export default router;

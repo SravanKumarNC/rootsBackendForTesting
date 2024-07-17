@@ -1,5 +1,4 @@
-const moment = require("moment");
-
+import moment from "moment";
 const getFilterCriteria = (filter) => {
   const today = moment().startOf("day");
   const lastSevenDays = moment().subtract(7, "days").startOf("day");
@@ -29,4 +28,4 @@ const getFilterCriteria = (filter) => {
       return {};
   }
 };
-module.exports = { getFilterCriteria };
+export default getFilterCriteria;
